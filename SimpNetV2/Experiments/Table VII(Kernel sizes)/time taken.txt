@@ -1,0 +1,19 @@
+(8layer arch)
+
+Kernel	Param	time							acc
+3x3	1.608m	training time						(92.14)
+		05:32:57 - 06:14:39  -> 41 mins   42 secs (2502 s)
+		22:52:50 - 23:34:22  -> 41 mins   32 secs (2492 s)
+		06:17:35 - 06:59:07  -> 41 mins   32 secs (2492 s)
+
+5x5	1.608m	training time						(90.99)
+		08:58:22 - 09:43:51  -> 45 mins   29 secs (2729 s)
+
+
+7x7	1.6m	training time						(89.22)
+with	1.620M: 
+		21:08:29 - 22:13:19   -> 1 hr   4 mins   50 secs (3890 s)
+		19:59:24 - 21:04:17   -> 1 hr   4 mins   53 secs (3893 s)
+		18:53:33 - 19:58:24   -> 1 hr   4 mins   51 secs (3891 s)
+with	1.608M:
+		10:02:23 - 11:07:47   -> 1 hr   5 mins   24 secs (3924 s)(89.12)

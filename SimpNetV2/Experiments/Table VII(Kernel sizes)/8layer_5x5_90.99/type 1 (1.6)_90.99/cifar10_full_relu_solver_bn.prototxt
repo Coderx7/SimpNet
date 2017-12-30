@@ -1,0 +1,28 @@
+# The train/test net protocol buffer definition
+net: "examples/cifar10/cifar10_full_relu_train_test_bn.prototxt"
+test_iter: 100
+test_interval: 500
+# The learning rate policy
+base_lr: 0.1
+momentum: 0.90
+weight_decay:  0.005 #0.005
+type:"AdaDelta"
+delta:1e-3
+gamma: 0.1
+lr_policy: "multistep"
+stepvalue: 5000
+stepvalue: 9500
+stepvalue: 15300
+stepvalue: 19500
+stepvalue: 22000
+stepvalue: 27000
+# Display every 200 iterations
+display: 100
+# The maximum number of iterations
+max_iter: 30000 
+# snapshot intermediate results
+snapshot: 500
+snapshot_prefix: "examples/cifar10/snaps/slimnet_1.6k_8L_5x5"
+# solver mode: CPU or GPU
+solver_mode: GPU
+random_seed: 786
