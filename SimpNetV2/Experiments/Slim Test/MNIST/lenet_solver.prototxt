@@ -1,0 +1,23 @@
+net: "examples/mnist/lenet_train_test.prototxt"
+test_iter: 100
+test_interval: 600
+base_lr: 0.1
+display: 100
+lr_policy: "multistep"
+gamma: 0.1
+momentum: 0.9
+weight_decay: 0.003
+delta:1e-3
+max_iter: 37000
+snapshot: 600
+snapshot_prefix: "examples/mnist/snaps/mnist_slimnet_300k_maxdrp"
+stepvalue: 5000
+stepvalue: 9500
+stepvalue: 22000
+stepvalue: 29600
+stepvalue: 32000
+stepvalue: 37000
+
+solver_mode: GPU
+type: "AdaDelta"
+random_seed: 786

@@ -1,0 +1,43 @@
+# reduce learning rate after 120 epochs (60000 iters) by factor 0f 10
+# then another factor of 10 after 10 more epochs (5000 iters)
+
+# The train/test net protocol buffer definition
+net: "examples/svhn/svhn_train_test.prototxt"
+#26,032 test set
+test_iter: 1627
+# Carry out testing every 1000 training iterations.
+#73,257 training set
+#test_interval: 732.57
+#604,388 training set (/100=6043.88)
+test_interval: 3000
+# The base learning rate, momentum and the weight decay of the network.
+base_lr: 0.1
+momentum: 0.90
+weight_decay:  0.005
+
+# The learning rate policy
+type:"AdaDelta"
+delta:1e-3
+gamma: 0.1	
+lr_policy: "multistep"
+stepvalue: 50000#15000#25000#12000#7000#14000#20000
+stepvalue: 95000#25000#55000#18000#35000
+stepvalue: 153000#35000#75000#25000#36000#60000
+stepvalue: 195000#45000#35000#36000#60000
+stepvalue: 220000#50000#45000#36000#60000
+#stepvalue: 130000#55000#36000#60000
+#stepvalue: 150000#55000#36000#60000
+stepvalue: 270000#55000#36000#60000
+#stepvalue: 110000
+#stepvalue: 120000
+# Display every 200 iterations
+display: 100
+# The maximum number of iterations
+max_iter: 1400000 
+# snapshot intermediate results
+snapshot: 3000#500#40000
+snapshot_prefix: "examples/svhn/the_snaps/svhn_slimnet_300k_maxdrp"
+# solver mode: CPU or GPU
+solver_mode: GPU
+random_seed: 1705
+
