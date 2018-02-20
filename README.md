@@ -6,9 +6,9 @@ This repository contains the architectures, pretrained models, logs, etc pertain
 
 #### Abstract : 
 
-Major winning Convolutional Neural Networks (CNNs), such as VGGNet, ResNet, DenseNet, etc, include tens to hundreds of millions of parameters, which impose considerable computation and memory overheads. This limits their practical usage in training and optimizing for real-world applications. On the contrary, light-weight architectures, such as SqueezeNet, are being proposed to address this issue. However, they mainly suffer from low accuracy, as they have compromised between the processing power and efficiency. These inefficiencies mostly stem from following an ad-hoc designing procedure. In this work, we discuss and propose several crucial design principles for an efficient architecture design and elaborate intuitions concerning different aspects of the design procedure. Furthermore, we introduce a new layer called *SAF-pooling* to improve the generalization power of the network while keeping it simple by choosing best features. Based on such principles, we propose a simple architecture called *SimpNet*. We empirically show that *SimpNet* provides a good trade-off between the computation/memory efficiency and the accuracy solely based on these primitive but crucial principles. SimpNet outperforms the deeper and more complex architectures such as VGGNet, ResNet, WideResidualNet \etc, on several well-known benchmarks, while having 2 to 25 times fewer number of parameters and operations. We obtain state-of-the-art results (in terms of a balance between the accuracy and the number of involved parameters) on standard datasets, such as CIFAR10, CIFAR100, MNIST and SVHN.
+> Major winning Convolutional Neural Networks (CNNs), such as VGGNet, ResNet, DenseNet, etc, include tens to hundreds of > millions of parameters, which impose considerable computation and memory overheads. This limits their practical usage in > training and optimizing for real-world applications. On the contrary, light-weight architectures, such as SqueezeNet, are being > proposed to address this issue. However, they mainly suffer from low accuracy, as they have compromised between the processing > power and efficiency. These inefficiencies mostly stem from following an ad-hoc designing procedure. In this work, we discuss > and propose several crucial design principles for an efficient architecture design and elaborate intuitions concerning > different aspects of the design procedure. Furthermore, we introduce a new layer called *SAF-pooling* to improve the > generalization power of the network while keeping it simple by choosing best features. Based on such principles, we propose a > simple architecture called *SimpNet*. We empirically show that *SimpNet* provides a good trade-off between the > computation/memory efficiency and the accuracy solely based on these primitive but crucial principles. SimpNet outperforms the > deeper and more complex architectures such as VGGNet, ResNet, WideResidualNet \etc, on several well-known benchmarks, while > having 2 to 25 times fewer number of parameters and operations. We obtain state-of-the-art results (in terms of a balance > between the accuracy and the number of involved parameters) on standard datasets, such as CIFAR10, CIFAR100, MNIST and SVHN.
 
-Simply put, *SimpNet* architecture is the successor to the the successful SimpleNet architecture. It is based on a series of design principles which allowed the architecture to become superior to its precessor ([*SimpleNet*](https://github.com/Coderx7/SimpleNet)) while still retaining the same number of parameters and simplicity in design and outperforms deeper and more complex architectures (2 to 25X), such as Wide Residual Networks, ResNet, FMax, etc on a series of highly compatative benchmark datasets such as CIFAR10/100, SVHN and MNIST). 
+Simply put, *SimpNet* architecture is the successor to the the successful SimpleNet architecture. It is based on a series of design principles which allowed the architecture to become superior to its precessor ([*SimpleNet*](https://github.com/Coderx7/SimpleNet)) while still retaining the same number of parameters and simplicity in design and outperforming deeper and more complex architectures (2 to 25X), such as Wide Residual Networks, ResNet, FMax, etc on a series of highly compatative benchmark datasets such as CIFAR10/100, SVHN and MNIST). 
 
 
 ## Citation
@@ -20,6 +20,18 @@ Simply put, *SimpNet* architecture is the successor to the the successful Simple
 
 Note: The files are being uploaded...
 
+
+## Principles overview: 
+1. Gradual Expansion with Minimum Allocation
+2. Homogeneous Groups of Layers
+3. Local Correlation Preservation
+4. Maximum Information Utilization
+5. Maximum Performance Utilization
+6. Balanced Distribution Scheme
+7. Rapid Prototyping In Isolation
+8. Simple Adaptive Feature Composition Pooling
+9. Dropout Utilization
+10. Final Regulation Stage
 
 ## Results Overview :
 
@@ -85,8 +97,10 @@ Note: The files are being uploaded...
 | WRN                                          |    600K     |     93.15     |     69.11     |
 | NIN                                          |     1M      |     91.19     |       —       |
 
-#### Experiments : 
+#### Principle Experiments : 
 
 #### Simple Adaptive Feature Composition Pooling (SAFC Pooling) :
 
-#### Generalization Samples: 
+![SAFC Pooling](/SimpNetV2/images/pooling_concept2 _v5_larged_2.jpg)
+
+#### Generalization Examples: 
