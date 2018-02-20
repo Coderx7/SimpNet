@@ -72,5 +72,6 @@ Note: The files are being uploaded...
 | WRN                                          |    600K     |     93.15     |     69.11     |
 | NIN                                          |     1M      |     91.19     |       —       |
 
+#### Experiments : 
 
-
+#### Simple Adaptive Feature Composition Pooling (SAFC Pooling) :
