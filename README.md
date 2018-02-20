@@ -20,19 +20,6 @@ Simply put, *SimpNet* architecture is the successor to the the successful Simple
 
 Note: The files are being uploaded...
 
-
-## Principles overview: 
-1. Gradual Expansion with Minimum Allocation
-2. Homogeneous Groups of Layers
-3. Local Correlation Preservation
-4. Maximum Information Utilization
-5. Maximum Performance Utilization
-6. Balanced Distribution Scheme
-7. Rapid Prototyping In Isolation
-8. Simple Adaptive Feature Composition Pooling
-9. Dropout Utilization
-10. Final Regulation Stage
-
 ## Results Overview :
 
 #### Top CIFAR10/100 results:
@@ -97,10 +84,33 @@ Note: The files are being uploaded...
 | WRN                                          |    600K     |     93.15     |     69.11     |
 | NIN                                          |     1M      |     91.19     |       —       |
 
-#### Principle Experiments : 
+## Principle Experiments : 
 
-#### Simple Adaptive Feature Composition Pooling (SAFC Pooling) :
+#### Gradual Expansion with Minimum Allocation:
+
+#### Homogeneous Groups of Layers:
+
+#### Local Correlation Preservation:
+
+#### Maximum Information Utilization:
+
+#### Maximum Performance Utilization:
+
+#### Balanced Distribution Scheme:
+
+#### Rapid Prototyping In Isolation:
+
+#### Simple Adaptive Feature Composition Pooling:
+
+#### Dropout Utilization:
+
+#### Final Regulation Stage:
+
+
+## Simple Adaptive Feature Composition Pooling (SAFC Pooling) :
 
 ![SAFC Pooling](https://github.com/Coderx7/SimpNet/blob/master/SimpNetV2/images/pooling_concept2%20_v5_larged_2.jpg?)
 
-#### Generalization Examples: 
+## Generalization Examples: 
+
+
