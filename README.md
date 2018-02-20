@@ -11,6 +11,13 @@ Major winning Convolutional Neural Networks (CNNs), such as VGGNet, ResNet, Dens
 Simply put, *SimpNet* architecture is the successor to the the successful SimpleNet architecture. It is based on a series of design principles which allowed the architecture to become superior to its precessor ([*SimpleNet*](https://github.com/Coderx7/SimpleNet)) while still retaining the same number of parameters and simplicity in design and outperforms deeper and more complex architectures (2 to 25X), such as Wide Residual Networks, ResNet, FMax, etc on a series of highly compatative benchmark datasets such as CIFAR10/100, SVHN and MNIST). 
 
 
+## Citation
+
+
+
+
+
+
 Note: The files are being uploaded...
 
 
