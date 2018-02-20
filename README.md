@@ -101,6 +101,6 @@ Note: The files are being uploaded...
 
 #### Simple Adaptive Feature Composition Pooling (SAFC Pooling) :
 
-![SAFC Pooling](/SimpNetV2/images/pooling_concept2 _v5_larged_2.jpg)
+![SAFC Pooling](https://github.com/Coderx7/SimpNet/blob/master/SimpNetV2/images/pooling_concept2%20_v5_larged_2.jpg?)
 
 #### Generalization Examples: 
