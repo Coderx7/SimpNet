@@ -12,13 +12,22 @@ Simply put, *SimpNet* architecture is the successor to the the successful Simple
 
 
 ## Citation
+If you find SimpleNet useful in your research, please consider citing:
+
+    @article{hasanpour2018towards,
+      title={Towards Principled Design of Deep Convolutional Networks: Introducing SimpNet},
+      author={Hasanpour, Seyyed Hossein and Rouhani, Mohammad and Fayyaz, Mohsen and Sabokrou, Mohammad and Adeli, Ehsan},
+      journal={arXiv preprint arXiv:1802.06205},
+      year={2018}
+    }
 
 
 
+## Contents : 
+#### 1- Results Overview  
+#### 2- Data-Augmentation /Preprocessing  
+#### 3- Principle Experiments Overview   
 
-
-
-Note: The files are being uploaded...
 
 ## Results Overview :
 
@@ -42,8 +51,7 @@ Note: The files are being uploaded...
 | **SimpNet**                 |    **5.4M**     |  **95.49/95.56**  |    **78.08**     |
 | **SimpNet**                 |    **8.9M**    |     **95.89**     |    **79.17**     |
 
-
-#### Comparisons of performance on SVHN:
+#### Top SVHN results:
 
 | **Method**                   | **Error rate** |
 | :--------------------------- | :------------: |
@@ -57,7 +65,7 @@ Note: The files are being uploaded...
 
 * The slim version achieves 1.95% error rate.
 
-#### MNIST results:
+#### Top MNIST results:
 
 | **Method**                   | **Error rate** |
 | :--------------------------- | :------------: |
@@ -69,7 +77,6 @@ Note: The files are being uploaded...
 | **SimpNet**                      |     **0.25%**      |
 
 * The slim version achives 99.73% accuracy.
-
 
 #### Slim Version Results on CIFAR10/100 : 
 
@@ -84,32 +91,158 @@ Note: The files are being uploaded...
 | WRN                                          |    600K     |     93.15     |     69.11     |
 | NIN                                          |     1M      |     91.19     |       —       |
 
-## Principle Experiments : 
+
+## Data-Augmentation and Preprocessing :
+
+As indicated in the paper, CIFAR10/100 use zero-padding and horizontal filipping.
+The script used for preprocessing CIFAR10/100 can be accessed from [here](https://github.com/Pastromhaug/caffe-stochastic-depth/blob/master/examples/cifar10/preprocessing.py)
+
+## Principle Experiments : A Quick Overview :
+Here is a quick overview of the tests conducted for every principle.  
+For the complete dicussion and further explanations concerning these experiments
+please read the paper. 
 
 #### Gradual Expansion with Minimum Allocation:
 
-#### Homogeneous Groups of Layers:
+| **Network Properties** | **Parameters** | **Accuracy (%)** |
+| :--------------------- | :------------: | :--------------: |
+| Arch1, 8 Layers        |      300K      |      90.21       |
+| Arch1, 9 Layers        |      300K      |      90.55       |
+| Arch1, 10 Layers       |      300K      |      90.61       |
+| Arch1, 13 Layers       |      300K      |      89.78       |
 
-#### Local Correlation Preservation:
+> Demonstrating how gradually expanding the network helps obtaining better performance. Increasing the depth up to a certain point improves the accuracy (up to 10 layers) and then after that it starts to degrade, indicating PLD issue taking place.
+
+| **Network Properties** | **Parameters** | **Accuracy (%)** |
+| :--------------------- | :------------: | :--------------: |
+| Arch1, 6 Layers        |      1.1M      |      92.18       |
+| Arch1, 10 Layers       |      570K      |      92.23       |
+
+> Shallow vs Deep: showing how a gradual increase can yield better performance with fewer number of parameters.
+
+#### Correlation Preservation:
+
+| **Network Properties** | **Parameters** | **Accuracy (%)** |
+| :--------------------- | :------------- | :--------------- |
+| Arch4, (3× 3)   | 300K           | 90.21            |
+| Arch4, (3 × 3)   | 1.6M           | 92.14            |
+| Arch4, (5 × 5)   | 1.6M           | 90.99            |
+| Arch4, (7 × 7)   | 300K.v1        | 86.09            |
+| Arch4, (7 × 7)   | 300K.v2        | 88.57            |
+| Arch4, (7 × 7)   | 1.6M           | 89.22            |
+
+> Accuracy for different combinations of kernel sizes and number of network parameters, which demonstrates how correlation preservation can directly affect the overall accuracy.
+
+| **Network Properties**                                                                                 | **Params** | **Accuracy (%)** |
+| :----------------------------------------------------------------------------------------------------- | :--------- | :--------------- |
+| <span>Arch5,</span> <span>13 Layers, (1 × 1)  (2 × 2) (early layers)</span>                | 128K       | 87.71  88.50     |
+| <span>Arch5,</span> <span>13 Layers, (1 × 1)  (2 × 2) (middle layers)</span>               | 128K       | 88.16  88.51     |
+| <span>Arch5,</span> <span>13 Layers, (1 × 1)  (3 × 3) (smaller  bigger end-avg)</span>     | 128K       | 89.45  89.60     |
+| <span>Arch5,</span> <span>11 Layers, (2 × 2)  (3 × 3) (bigger learned feature-maps)</span> | 128K       | 89.30  89.44     |
+
+> Different kernel sizes applied on different parts of a network affect the overall performance, the kernel sizes that preserve the correlation the most yield the best accuracy. Also, the correlation is more important in early layers than it is for the later ones.
+
+> SqueezeNet test on CIFAR10 vs SimpNet (slim version).
+
+| **Network**              | **Params** | **Accuracy (%)** |
+| :----------------------- | :--------: | :--------------: |
+| SqueezeNet1.1_default   |    768K    |      88.60       |
+| SqueezeNet1.1_optimized |    768K    |      92.20       |
+| SimpNet_Slim            |    300K    |      93.25       |
+| SimpNet_Slim            |    600K    |      94.03       |
+
+> Correlation Preservation: SqueezeNet vs SimpNet on CIFAR10. By *optimized*
+we mean, we added Batch-Normalization to all layers and used the same
+optimization policy we used to train SimpNet.
 
 #### Maximum Information Utilization:
 
+| **Network Properties**                 | **Parameters** | **Accuracy (%)** |
+| :------------------------------------- | :------------- | :--------------- |
+| Arch3, <span>L5</span> default         | 53K            | 79.09            |
+| Arch3, <span>L3</span> early pooling   | 53K            | 77.34            |
+| Arch3, <span>L7</span> delayed pooling | 53K            | 79.44            |
+
+> The effect of using pooling at different layers. Applying pooling early
+in the network adversely affects the performance.
+
+| **Network Properties** | **Depth** | **Parameters** | **Accuracy (%)** |
+| :--------------------- | :-------- | :------------- | :--------------- |
+| SimpNet(*)           | 13        | 360K           | 69.28            |
+| SimpNet(*)           | 15        | 360K           | 68.89            |
+| SimpNet(†)     | 15        | 360K           | 68.10            |
+| ResNet(*)            | 32        | 460K           | 93.75            |
+| ResNet(†)      | 32        | 460K           | 93.46            |
+
+> Effect of using strided convolution ((†))  Max-pooling ((*)).
+Max-pooling outperforms the strided convolution regardless of specific
+architecture. First three rows are tested on CIFAR100 and two last on
+CIFAR10.
+
 #### Maximum Performance Utilization:
+
+> Table [\[tab:max\_perf\]](#tab:max_perf) demonstrates the performance
+and elapsed time when different kernels are used. (3 × 3) has the
+best performance among the
+others.
+
+| **Network Properties**             | **(3 × 3)** | **(5 × 5)** | **(7 × 7)** |
+| :--------------------------------- | :--------------- | :--------------- | :--------------- |
+| Accuracy (higher is better)        | 92.14            | 90.99            | 89.22            |
+| Elapsed time(min)(lower is better) | 41.32            | 45.29            | 64.52            |
+
+> Maximum performance utilization using Caffe, cuDNNv6, networks have 1.6M
+parameters and the same depth.
 
 #### Balanced Distribution Scheme:
 
+| **Network Properties**            | **Parameters** | **Accuracy (%)** |
+| :-------------------------------- | :------------- | :--------------- |
+| Arch2, 10 Layers (wide end)       | 8M             | 95.19            |
+| Arch2, 10 Layers (balanced width) | 8M             | 95.51            |
+| Arch2, 13 Layers (wide end)       | 128K           | 87.20            |
+| Arch2, 13 Layers (balanced width) | 128K           | 89.70            |
+
+> Balanced distribution scheme is demonstrated by using two variants of
+SimpNet architecture with 10 and 13 layers, each showing how the
+difference in allocation results in varying performance and ultimately
+improvements for the one with balanced distribution of
+units.
+
 #### Rapid Prototyping In Isolation:
 
-#### Simple Adaptive Feature Composition Pooling:
+| **Network Properties**                      | **Accuracy (%)** |
+| :------------------------------------------ | :--------------: |
+| Use of (3 × 3) filters                 |      90.21       |
+| Use of (5 × 5) instead of (3 × 3) |      90.99       |
 
-#### Dropout Utilization:
+> The importance of experiment isolation using the same architecture once
+using (3 ×  3) and then using (5 × 5)
+kernels.
 
-#### Final Regulation Stage:
+| **Network Properties**                        | **Accuracy (%)** |
+| :-------------------------------------------- | :--------------: |
+| Use of (5 × 5) filters at the beginning |      89.53       |
+| Use of (5 × 5) filters at the end       |      90.15       |
+
+> Wrong interpretation of results when experiments are not compared in
+equal conditions (Experimental
+isolation).
 
 
 ## Simple Adaptive Feature Composition Pooling (SAFC Pooling) :
 
 ![SAFC Pooling](https://github.com/Coderx7/SimpNet/blob/master/SimpNetV2/images/pooling_concept2%20_v5_larged_2.jpg?)
+
+| **Network Properties** | **With SAF**  | **Without SAF** |
+| :--------------------- | :--------------------------------------------- | :- |
+| SqueezeNetv1.1         | 88.05(avg)                       | 87.74(avg)    |
+| SimpNet                | 94.76                                  | 94.68   |
+
+Using *SAF-pooling* operation improves architecture performance. Tests
+are run on CIFAR10.
+
+#### Dropout Utilization:
 
 ## Generalization Examples: 
 
