@@ -238,7 +238,7 @@ isolation).
 | **Network Properties** | **With SAF**  | **Without SAF** |
 | :--------------------- | :--------------------------------------------- | :- |
 | SqueezeNetv1.1         | 88.05(avg)                       | 87.74(avg)    |
-| SimpNet                | 94.76                                  | 94.68   |
+| SimpNet-Slim                | 94.76                                  | 94.68   |
 
 Using *SAF-pooling* operation improves architecture performance. Tests
 are run on CIFAR10.
