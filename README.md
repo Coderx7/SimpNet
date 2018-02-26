@@ -10,7 +10,7 @@ This repository contains the architectures, pretrained models, logs, etc pertain
 
 The main contributions of this work are as follows:
 
-1.   Introducing several crucial principles for designing deep convolutional architectures, which are backed up by extensive experiments and discussions in comparison to the literature.
+1.   Introducing several crucial principles for designing deep convolutional architectures, which are backed up by extensive experiments and discussions in comparison with the literature.
 
 2.   Based on such principles, It puts under the test the validity of some of the previously considered best practices. such as Strided Convolutions vs MaxPooling, Overlapped Pooling vs Nonoverlapped Pooling, etc. Furthermore, it tries to provide intuitive understanding of each point as to why one should be used instead of the other.
 
