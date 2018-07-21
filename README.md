@@ -61,7 +61,9 @@ If you find SimpleNet useful in your research, please consider citing:
 | **SimpNet**                 |    **8.9M**    |     **96.12**     |    **79.53**     |
 | **SimpNet**(†)                 |    **15M**    |     **96.20**     |    **80.29**     |
 | **SimpNet**(†)                 |    **25M**    |     **96.29**     |    N/A     |
+
 (†): Unfinished tests. the results are not finalized and training continues.
+
 #### Top SVHN results:
 
 | **Method**                   | **Error rate** |
