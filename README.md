@@ -57,9 +57,11 @@ If you find SimpleNet useful in your research, please consider citing:
 | DSN                     |      1M      |     92.03     |    65.43     |
 | Max-out NIN             |      \-      |     93.25     |    71.14     |
 | LSUV                    |     N/A      |     94.16     |     N/A      |
-| **SimpNet**                 |    **5.4M**     |  **95.49/95.56**  |    **78.08**     |
-| **SimpNet**                 |    **8.9M**    |     **95.89**     |    **79.17**     |
-
+| **SimpNet**                 |    **5.4M**     |  **95.69**  |    **78.16**     |
+| **SimpNet**                 |    **8.9M**    |     **96.12**     |    **79.53**     |
+| **SimpNet**(†)                 |    **15M**    |     **96.20**     |    **80.29**     |
+| **SimpNet**(†)                 |    **25M**    |     **96.29**     |    N/A     |
+(†): Unfinished tests. the results are not finalized and training continues.
 #### Top SVHN results:
 
 | **Method**                   | **Error rate** |
