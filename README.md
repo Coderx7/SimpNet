@@ -62,7 +62,7 @@ If you find SimpleNet useful in your research, please consider citing:
 | **SimpNet**(†)                 |    **15M**    |     **96.20**     |    **80.29**     |
 | **SimpNet**(†)                 |    **25M**    |     **96.29**     |    N/A     |
 
-(†): Unfinished tests. the results are not finalized and training continues.
+(†): Unfinished tests. the results are not finalized and training continues. These models are simply tested without any hyperparameter tuning, only to show how they perform compare to the DeseNet and WRNs. As the prelimnery results show, they outperform both architectures. The full details will be provided after the tests are finished.
 
 #### Top SVHN results:
 
